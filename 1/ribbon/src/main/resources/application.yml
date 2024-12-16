@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: RIBBON-SERVER
+
+server:
+  port: 8900
+
+ribbon-client:
+  ribbon:
+    eureka:
+      enabled: true
+    PingUrl: /health/ping
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: false
+    fetch-registry: true
+  instance:
+    preferIpAddress: true
+    ip-address: 127.0.0.1
+
+logging:
+  level:
+    com.netflix.discovery: DEBUG
+    com.netflix.loadbalancer: DEBUG
+    org.springframework.cloud.netflix.ribbon: DEBUG
